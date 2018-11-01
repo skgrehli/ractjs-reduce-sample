@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework_jwt.views import obtain_jwt_token
+from django.conf.urls import url
+from blockseed_server.core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('token-auth/', obtain_jwt_token),
     path('core/', include('core.urls')),
+    url(r'^signup/$', views.signup, name='signup')
 ]

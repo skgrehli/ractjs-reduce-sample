@@ -11,10 +11,17 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import pathlib
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print(BASE_DIR)
+BASE_DIR = pathlib.Path(__file__).resolve()
+print(BASE_DIR)
 
+TEMPLATE_DIRS = (
+    pathlib.Path(BASE_DIR).joinpath('templates')
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/

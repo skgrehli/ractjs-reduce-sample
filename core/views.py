@@ -5,7 +5,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import UserSerializer, UserSerializerWithToken
-
+from django.contrib.auth import login, authenticate 
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
 
 @api_view(['GET'])
 def current_user(request):
@@ -31,3 +33,14 @@ class UserList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password') 
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
