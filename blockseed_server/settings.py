@@ -20,7 +20,7 @@ BASE_DIR = pathlib.Path(__file__).resolve()
 print(BASE_DIR)
 
 TEMPLATE_DIRS = (
-    pathlib.Path(BASE_DIR).joinpath('templates')
+    pathlib.Path(BASE_DIR).joinpath('templates'),
 )
 
 # Quick-start development settings - unsuitable for production
