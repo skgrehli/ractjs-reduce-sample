@@ -1,0 +1,34 @@
+/*#header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000000;
+    color: #FFFFFF;
+}
+*/
+
+.navbar {
+  min-height: 60px;
+  margin: 0;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+
+.navbar-brand>img {
+  height: 135%;
+  padding: 14px;
+  width: auto;
+}
+
+.nav a{
+    font-size: 1.1em !important;
+}
+
+.header-title-wrap {
+    background: #DDDDDD;
+    padding: 0;
+    text-align: center;
+}

@@ -1,0 +1,13 @@
+#peer-review {
+	max-width: 370px;
+	max-height: 370px;
+	background-color: #FFFFFF;
+	margin: 15px;
+	padding: 15px;
+	border: 2px solid black;
+}
+
+#star {
+	height: 50%;
+	width: 50%;
+}
