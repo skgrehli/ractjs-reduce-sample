@@ -109,3 +109,9 @@
 .error {
   float: left;
 }
+
+#email-sent-forgot-password {
+  margin: 70px auto 30px;
+  text-align: center;
+  word-wrap: break-word;
+}
