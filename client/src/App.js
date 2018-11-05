@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import { SignInForm, SignUpForm, SignUpFollowForm, ForgotPassword } from './Auth';
+import { StartupList } from './components/UserDetails';
 import { LeftSideNavPanel, RefineSearch, PeerReview } from './components/SidePanels';
 import { Ratings } from './components/Dashboard';
 import './App.css';
@@ -30,6 +31,7 @@ class App extends Component {
                 <Route path="/left-nav" component={LeftSideNavPanel} />
                 <Route path="/refine-search" component={RefineSearch} />
                 <Route path="/peer-review" component={PeerReview} />
+                <Route path="/collapsible" component={StartupList} />
       		  </Switch>
   			    <Footer />
 			    </div>
