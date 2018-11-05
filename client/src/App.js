@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
-import { SignInForm, SignUpForm, SignUpFollowForm, ForgotPassword, ResetPassword } from './components/SignUp';
+import { SignInForm, SignUpForm, SignUpFollowForm, ForgotPassword } from './Auth';
 import { LeftSideNavPanel, RefineSearch, PeerReview } from './components/SidePanels';
 import { Ratings } from './components/Dashboard';
 import './App.css';
@@ -26,7 +26,6 @@ class App extends Component {
       			    <Route path="/signup" component={SignUpForm} />
       			    <Route path="/profile-details" component={SignUpFollowForm} />
                 <Route path="/forgot-password" component={ForgotPassword} />
-                <Route path="/reset-password" component={ResetPassword} />
                 <Route path="/dashboard" component={Ratings} />
                 <Route path="/left-nav" component={LeftSideNavPanel} />
                 <Route path="/refine-search" component={RefineSearch} />
