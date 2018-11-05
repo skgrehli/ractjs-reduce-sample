@@ -64,6 +64,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         instance.country = validated_data.get('country', instance.country)
         instance.role = validated_data.get('role', instance.role)
         # create_role_user(instance.role)
+        instance.is_active = True
         instance.save()
         return instance
 
