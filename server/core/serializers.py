@@ -15,6 +15,7 @@ from django.db import transaction
 from rest_framework import serializers
 
 # Third Party Library imports
+from django_countries import countries
 
 # local imports.
 from core.models import User, Campany, Sector, Industry
@@ -95,3 +96,10 @@ class IndustrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Industry
         fields = ('id', 'name')
+
+
+class CountrySerializer(serializers.Serializer):
+
+    country = serializers.ListField(source=countries)
+    class Meta:
+        fields = ("country",)
