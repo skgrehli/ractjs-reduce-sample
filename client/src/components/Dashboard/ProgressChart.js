@@ -13,9 +13,9 @@ class ProgressChart extends Component {
 	}
 
 	render() {
-		const { percentage } = this.props;
+		const { percentage, container_size } = this.props;
 		return(
-			<div class="container" style={{ width: '230px' }}>
+			<div class="container" style={{ width: `${container_size}` }}>
 			<CircularProgressbar
 			  percentage={percentage}
 			  text={`${percentage}%`}
