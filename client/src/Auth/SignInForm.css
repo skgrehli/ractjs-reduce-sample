@@ -65,7 +65,7 @@
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
 
 .bgImage {
-  background: url(../../assets/images/Signup_background.jpg) ;
+  background: url(../assets/images/Signup_background.jpg) ;
   background-repeat: no-repeat;
   -webkit-background-size: cover; /* For WebKit*/
   -moz-background-size: cover;    /* Mozilla*/

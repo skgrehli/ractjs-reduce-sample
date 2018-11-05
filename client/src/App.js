@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
 import { SignInForm, SignUpForm, SignUpFollowForm, ForgotPassword, ResetPassword } from './components/SignUp';
 import { LeftSideNavPanel, RefineSearch, PeerReview } from './components/SidePanels';
 import { Ratings } from './components/Dashboard';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 /* TODO:
@@ -14,6 +15,7 @@ import './App.css';
 
 class App extends Component {
   render() {
+	
     return (
     	<div className="App">
       	<Router>

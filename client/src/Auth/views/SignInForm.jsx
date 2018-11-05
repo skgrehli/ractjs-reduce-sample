@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import './SignInForm.css';
+import { connect } from 'react-redux';
+
+import { login } from '../Auth.action'
+import '../SignInForm.css';
 
 
 /* TODO : 
@@ -7,6 +10,9 @@ import './SignInForm.css';
 */
 
 class SignInForm extends Component {
+  constructor (props) {
+    super(props);
+  }
   state = {
     email: '',
     password: '',
@@ -25,13 +31,13 @@ class SignInForm extends Component {
     }
   }
 
-  handle_change = e => {
-    const name = e.target.id;
+  handle_change = (e, stateName) => {
     const value = e.target.value;
     this.setState(prevstate => {
       const newState = { ...prevstate };
-      newState[name] = value;
-      if (name === 'email') {
+      newState[stateName] = value;
+      if (stateName === 'email') {
+        this.validateEmail(this.state.email);
         newState['errors'] = [];
       }
       return newState;
@@ -40,27 +46,11 @@ class SignInForm extends Component {
 
   handle_login = (event) => {
     event.preventDefault();
-    let emailValidator = this.validateEmail(this.state.email);
-    if (emailValidator) {
-      const data = {
-        "username": this.state.email,
-        "password": this.state.password,
-      };
-      fetch('http://localhost:8000/token-auth/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-        .then(res => res.json())
-        .then(json => {
-          localStorage.setItem('token', json.token);
-          if (json && json.non_field_errors) {
-            this.setState({errors: json.non_field_errors});
-          }
-        });
-      }
+    const values = {
+      email: this.state.email,
+      password: this.state.password
+    }
+    this.props.login(values);
   };
 
 	render() {
@@ -82,15 +72,25 @@ class SignInForm extends Component {
                 </div>
                 <div class="row">
                   <div class="form-group">
-                    <input type="email" class="form-control" id="email" placeholder="Email Address" onChange={(e) => this.handle_change(e)} />
+                    <input 
+                      type="email" 
+                      className="form-control" 
+                      id="email" 
+                      value= {this.state.email}
+                      placeholder="Email Address" 
+                      onChange={(e) => this.handle_change(e, "email")} 
+                    />
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group">
-                    <input type="password" class="form-control" id="password" placeholder="Password" onChange={(e) => this.handle_change(e)} />
-                    {this.state.errors.length>0 && this.state.errors.map(function(error, index){
-                    return <span class="error text-danger"><small>{error}</small></span>;
-                  })}
+                    <input 
+                      type="password" 
+                      class="form-control" 
+                      id="password" 
+                      placeholder="Password" 
+                      onChange={(e) => this.handle_change(e, "password")} 
+                    />
                   </div>
                 </div>
                 <div class="row">
@@ -116,4 +116,10 @@ class SignInForm extends Component {
   }
 }
 
-export default SignInForm;
+const mapsDispatchToProps = dispatch => {
+  return {
+    login : (values) => dispatch(login(values))
+  }
+}
+
+export default connect(null, mapsDispatchToProps)(SignInForm);
