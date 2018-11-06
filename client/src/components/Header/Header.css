@@ -38,3 +38,13 @@
     padding: 0;
     text-align: center;
 }
+
+.navbar-toggle {
+  border-color: #d3d3d3;
+  color: #DDDDDD;
+}
+
+.icon-bar {
+  color: #DDDDDD !important;
+  background-color: #d3d3d3;
+}

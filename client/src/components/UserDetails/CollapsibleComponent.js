@@ -8,7 +8,7 @@ import './Collapsible.css';
 3. Add a arrow button --> shows square box currently
 */
 
-class CollapsiblComponent extends Component {
+class CollapsibleComponent extends Component {
 
   render() {
     return(
@@ -67,4 +67,4 @@ class CollapsiblComponent extends Component {
  
 }
  
-export default CollapsiblComponent;
+export default CollapsibleComponent;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CollapsiblComponent } from '../../UserDetails';
+import { CollapsibleComponent } from '../../UserDetails';
 
 // WIP Initial commit for StartupList
 
@@ -7,11 +7,11 @@ class StartupList extends Component {
 	render() {
 		return(
 			<div>
-				<CollapsiblComponent />
-				<CollapsiblComponent />
-				<CollapsiblComponent />
-				<CollapsiblComponent />
-				<CollapsiblComponent />
+				<CollapsibleComponent />
+				<CollapsibleComponent />
+				<CollapsibleComponent />
+				<CollapsibleComponent />
+				<CollapsibleComponent />
 			</div>
 			);
 	}

@@ -11,6 +11,7 @@ import './App.css';
 
 /* TODO:
 1. Implement Redux
+2. Implement BrowserHistory
 */
 
 
