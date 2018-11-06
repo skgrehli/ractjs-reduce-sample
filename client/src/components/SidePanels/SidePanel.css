@@ -11,3 +11,21 @@
 	height: 50%;
 	width: 50%;
 }
+
+.bm-burger-button {
+	max-height: 30px;
+	max-width: 30px;
+	position: relative;
+}
+
+.bm-cross-button {
+	max-height: 50px;
+	max-width: 50px;
+	position: relative;
+}
+
+.bm-menu {
+  background: #FFFFFF;
+  padding: 10px;
+  font-size: 1.15em;
+}
