@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import './Header.css';
 
 /*TODO : 
-1. [Cosmetic] Update logo and positioning
-2. [Cosmetic] Update header/navbar color
-3. Build Login Navbar Login to switch to User Profile dropdown with image when logged in
+1. Update CSS for active link in navbar
+2. Build Login Navbar Login to switch to User Profile dropdown with image when logged in
 */
 
 
 class Header extends Component {
 	render() {
     return (
-      <div>
+      <div id="nav-header">
         <div class="header-title-wrap">
           <div class="container">
             <p>
@@ -23,7 +22,7 @@ class Header extends Component {
             </p>
           </div>
         </div>
-        <nav class="navbar navbar-expand-md navbar-inverse" id="nav">
+        <nav class="navbar navbar-expand-md" id="nav">
           <div class="container-fluid">
             <div class="navbar-header">
               <a class="navbar-brand" href="/">
