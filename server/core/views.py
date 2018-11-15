@@ -21,8 +21,10 @@ from core.serializers import (UserCreateSerializer,
                               CampanyListSerializer,
                               SectorSerializer,
                               IndustrySerializer,
-                              ProfileSerializer)
+                              ProfileSerializer,
+                              CountrySerializer)
 from core.utils import generate_jwt_token
+from django_countries import countries
 
 
 class RegistrationAPIView(APIView):
@@ -169,7 +171,8 @@ class ProfileAPIView(APIView):
     def put(self, request, pk, *args, **kwargs):
         try:
             user = self.get_object(pk)
-            user_serializer = ProfileSerializer(instance=user, data=request.data)
+            user_serializer = ProfileSerializer(
+                instance=user, data=request.data)
             if user_serializer.is_valid():
                 user = user_serializer.save()
                 return Response(user_serializer.data, status=status.HTTP_200_OK)
@@ -185,3 +188,11 @@ class ProfileAPIView(APIView):
             return Response({'status': False,
                              'message': str(e)},
                             status=status.HTTP_400_BAD_REQUEST)
+
+
+class CountryAPIView(APIView):
+    __doc__ = "Country API for user"
+
+    def get(self, request, *args, **kwargs):
+        data = sorted(countries.countries.values())
+        return Response(data, status=status.HTTP_200_OK)
